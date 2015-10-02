@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Live Tease</title>
+    <script src="/socket.io/socket.io.js" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link type=text/css rel="stylesheet" href="style.css"/>
+
+
+</head>
+<body>
+
+<h1>Orders</h1>
+
+<div class="col-md-6">
+
+    <img src="beer.png" alt="beer"/>
+
+    <h3>Price :</h3>
+    <h3>Ordered :</h3><span id="beer"></span>
+    <h3>Asked :</h3>
+
+    <img src="wine.png" alt="wine"/>
+    <h3>Price :</h3>
+    <h3>Ordered :</h3><span id="wine"></span>
+    <h3>Asked :</h3>
+</div>
+<div class="col-md-6">
+    <img src="champagne.png" alt="champagne"/>
+    <h3>Price :</h3>
+    <h3>Ordered :</h3><span id="champagne"></span>
+    <h3>Asked :</h3>
+
+    <img src="cocktail.png" alt="cocktail"/>
+    <h3>Price :</h3>
+    <h3>Ordered :</h3><span id="cocktail"></span>
+    <h3>Asked :</h3>
+
+
+
+
+    </div>
+
+
+<script type="text/javascript">
+    var socket = io();
+
+    socket.on('drinks', function (drinks) {
+
+        for (var i = 0; i < drinks.length; i++) {
+            $('#' + drinks[i].name).html(drinks[i].count);
+        }
+    });
+
+
+
+
+
+</script>
+</body>
+</html>
+
+<script>
+
+</script>

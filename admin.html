@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Barman app</title>
+    <script src="/socket.io/socket.io.js" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link type=text/css rel="stylesheet" href="style.css"/>
+
+</head>
+<body>
+
+<h1>Choose a drink</h1>
+
+<!-- Admin page
+
+<button type="button" name="drink">Drink</button> -->
+
+<div class="col-md-6">
+    <button type="button" name="drink" data-drink="beer"><img src="beer.png" alt="Beer"/></button>
+    <h2>Beer</h2>
+    <button type="button" name="drink" data-drink="wine"><img src="wine.png" alt="Wine"/></button>
+    <h2>Wine</h2>
+
+</div>
+
+<div class="col-md-6">
+    <button type="button" name="drink" data-drink="champagne"><img src="champagne.png" alt="Champagne"/></button>
+    <h2>Champagne</h2>
+    <button type="button" name="drink" data-drink="cocktail"><img src="cocktail.png" alt="Cocktail"/></button>
+    <h2>Cocktail</h2>
+</div>
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+    var socket = io();
+
+    $(function (){
+        $('button').on('click', function () {
+            var beverage = $(this).data('drink');
+            socket.emit('commande', beverage);
+
+        })
+    });
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
